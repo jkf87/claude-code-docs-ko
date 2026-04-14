@@ -1,0 +1,14 @@
+plugins	https://code.claude.com/docs/en/plugins.md
+plugins-reference	https://code.claude.com/docs/en/plugins-reference.md
+plugin-marketplaces	https://code.claude.com/docs/en/plugin-marketplaces.md
+discover-plugins	https://code.claude.com/docs/en/discover-plugins.md
+settings	https://code.claude.com/docs/en/settings.md
+setup	https://code.claude.com/docs/en/setup.md
+env-vars	https://code.claude.com/docs/en/env-vars.md
+model-config	https://code.claude.com/docs/en/model-config.md
+costs	https://code.claude.com/docs/en/costs.md
+checkpointing	https://code.claude.com/docs/en/checkpointing.md
+scheduled-tasks	https://code.claude.com/docs/en/scheduled-tasks.md
+sandboxing	https://code.claude.com/docs/en/sandboxing.md
+security	https://code.claude.com/docs/en/security.md
+legal-and-compliance	https://code.claude.com/docs/en/legal-and-compliance.md

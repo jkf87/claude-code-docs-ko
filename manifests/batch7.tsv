@@ -1,0 +1,14 @@
+agent-sdk/mcp	https://code.claude.com/docs/en/agent-sdk/mcp.md
+agent-sdk/hooks	https://code.claude.com/docs/en/agent-sdk/hooks.md
+agent-sdk/permissions	https://code.claude.com/docs/en/agent-sdk/permissions.md
+agent-sdk/sessions	https://code.claude.com/docs/en/agent-sdk/sessions.md
+agent-sdk/subagents	https://code.claude.com/docs/en/agent-sdk/subagents.md
+agent-sdk/skills	https://code.claude.com/docs/en/agent-sdk/skills.md
+agent-sdk/slash-commands	https://code.claude.com/docs/en/agent-sdk/slash-commands.md
+agent-sdk/streaming-output	https://code.claude.com/docs/en/agent-sdk/streaming-output.md
+agent-sdk/streaming-vs-single-mode	https://code.claude.com/docs/en/agent-sdk/streaming-vs-single-mode.md
+agent-sdk/structured-outputs	https://code.claude.com/docs/en/agent-sdk/structured-outputs.md
+agent-sdk/todo-tracking	https://code.claude.com/docs/en/agent-sdk/todo-tracking.md
+agent-sdk/tool-search	https://code.claude.com/docs/en/agent-sdk/tool-search.md
+agent-sdk/user-input	https://code.claude.com/docs/en/agent-sdk/user-input.md
+agent-sdk/modifying-system-prompts	https://code.claude.com/docs/en/agent-sdk/modifying-system-prompts.md

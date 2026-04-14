@@ -1,0 +1,13 @@
+slack
+statusline
+sub-agents
+terminal-config
+third-party-integrations
+tools-reference
+troubleshooting
+ultraplan
+voice-dictation
+vs-code
+web-quickstart
+web-scheduled-tasks
+zero-data-retention

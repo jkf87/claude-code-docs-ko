@@ -1,0 +1,14 @@
+claude-directory
+cli-reference
+code-review
+commands
+common-workflows
+computer-use
+context-window
+costs
+data-usage
+desktop
+desktop-quickstart
+desktop-scheduled-tasks
+devcontainer
+discover-plugins

@@ -1,0 +1,13 @@
+jetbrains
+keybindings
+legal-and-compliance
+llm-gateway
+mcp
+memory
+microsoft-foundry
+model-config
+monitoring-usage
+network-config
+output-styles
+overview
+permission-modes

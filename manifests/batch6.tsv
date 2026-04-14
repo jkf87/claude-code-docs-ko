@@ -1,0 +1,15 @@
+headless	https://code.claude.com/docs/en/headless.md
+sub-agents	https://code.claude.com/docs/en/sub-agents.md
+agent-teams	https://code.claude.com/docs/en/agent-teams.md
+channels	https://code.claude.com/docs/en/channels.md
+channels-reference	https://code.claude.com/docs/en/channels-reference.md
+ultraplan	https://code.claude.com/docs/en/ultraplan.md
+third-party-integrations	https://code.claude.com/docs/en/third-party-integrations.md
+devcontainer	https://code.claude.com/docs/en/devcontainer.md
+code-review	https://code.claude.com/docs/en/code-review.md
+troubleshooting	https://code.claude.com/docs/en/troubleshooting.md
+agent-sdk/overview	https://code.claude.com/docs/en/agent-sdk/overview.md
+agent-sdk/quickstart	https://code.claude.com/docs/en/agent-sdk/quickstart.md
+agent-sdk/agent-loop	https://code.claude.com/docs/en/agent-sdk/agent-loop.md
+agent-sdk/claude-code-features	https://code.claude.com/docs/en/agent-sdk/claude-code-features.md
+agent-sdk/custom-tools	https://code.claude.com/docs/en/agent-sdk/custom-tools.md

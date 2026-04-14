@@ -1,0 +1,14 @@
+permissions
+platforms
+plugin-marketplaces
+plugins
+plugins-reference
+quickstart
+remote-control
+sandboxing
+scheduled-tasks
+security
+server-managed-settings
+settings
+setup
+skills

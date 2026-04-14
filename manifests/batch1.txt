@@ -1,0 +1,14 @@
+agent-sdk/agent-loop
+agent-sdk/claude-code-features
+agent-sdk/cost-tracking
+agent-sdk/custom-tools
+agent-sdk/file-checkpointing
+agent-sdk/hooks
+agent-sdk/hosting
+agent-sdk/mcp
+agent-sdk/migration-guide
+agent-sdk/modifying-system-prompts
+agent-sdk/observability
+agent-sdk/overview
+agent-sdk/permissions
+agent-sdk/plugins
