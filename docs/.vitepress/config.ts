@@ -5,7 +5,7 @@ export default defineConfig({
   description: 'Anthropic Claude Code What\'s New 한국어 번역 — 매주 주요 업데이트 요약',
   lang: 'ko-KR',
   base: '/claude-code-docs-ko/',
-  cleanUrls: true,
+  cleanUrls: false,
   ignoreDeadLinks: true,
 
   head: [
