@@ -1,0 +1,97 @@
+---
+title: 데이터 사용
+description: Claude에 대한 Anthropic의 데이터 사용 정책 알아보기
+---
+
+# 데이터 사용
+
+## 데이터 정책
+
+### 데이터 학습 정책
+
+**일반 사용자(Free, Pro, Max 플랜)**:
+향후 Claude 모델 개선을 위해 데이터를 사용할 수 있도록 선택할 수 있습니다. 이 설정이 켜져 있으면 Free, Pro, Max 계정의 데이터를 사용하여 새로운 모델을 학습합니다(이러한 계정에서 Claude Code를 사용하는 경우 포함).
+
+**상업 사용자**: (Team 및 Enterprise 플랜, API, 서드파티 플랫폼, Claude Gov)는 기존 정책을 유지합니다: Anthropic은 고객이 모델 개선을 위해 데이터를 제공하기로 선택한 경우(예: [개발자 파트너 프로그램](https://support.claude.com/en/articles/11174108-about-the-development-partner-program))를 제외하고, 상업 약관에 따라 Claude Code에 전송된 코드나 프롬프트를 사용하여 생성 모델을 학습하지 않습니다.
+
+### 개발자 파트너 프로그램
+
+[개발자 파트너 프로그램](https://support.claude.com/en/articles/11174108-about-the-development-partner-program) 등을 통해 학습용 자료를 제공하는 데 명시적으로 옵트인하면, 제공된 자료를 모델 학습에 사용할 수 있습니다. 조직 관리자는 조직을 위해 개발자 파트너 프로그램에 명시적으로 옵트인할 수 있습니다. 이 프로그램은 Anthropic 자사 API에서만 사용할 수 있으며, Bedrock이나 Vertex 사용자는 사용할 수 없습니다.
+
+### `/feedback` 명령어를 사용한 피드백
+
+`/feedback` 명령어를 사용하여 Claude Code에 대한 피드백을 보내기로 선택하면, 제품 및 서비스 개선을 위해 피드백을 사용할 수 있습니다. `/feedback`을 통해 공유된 대화 내용은 5년간 보관됩니다.
+
+### 세션 품질 설문
+
+Claude Code에서 "How is Claude doing this session?" 프롬프트가 표시되면, 이 설문에 응답(또는 "Dismiss" 선택)할 때 숫자 평점(1, 2, 3 또는 dismiss)만 기록됩니다. 이 설문의 일부로 대화 내용, 입력, 출력 또는 기타 세션 데이터를 수집하거나 저장하지 않습니다. 좋아요/싫어요 피드백이나 `/feedback` 보고서와 달리, 이 세션 품질 설문은 단순한 제품 만족도 지표입니다. 이 설문에 대한 응답은 데이터 학습 환경설정에 영향을 미치지 않으며 AI 모델 학습에 사용될 수 없습니다.
+
+이러한 설문을 비활성화하려면 `CLAUDE_CODE_DISABLE_FEEDBACK_SURVEY=1`을 설정하세요. `DISABLE_TELEMETRY` 또는 `CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC`이 설정되면 설문도 비활성화됩니다. 비활성화 대신 빈도를 제어하려면 설정 파일에서 [`feedbackSurveyRate`](/settings#available-settings)를 `0`에서 `1` 사이의 확률로 설정하세요.
+
+### 데이터 보관
+
+Anthropic은 계정 유형 및 환경설정에 따라 Claude Code 데이터를 보관합니다.
+
+**일반 사용자(Free, Pro, Max 플랜)**:
+
+* 모델 개선을 위한 데이터 사용을 허용하는 사용자: 모델 개발 및 안전 개선을 지원하기 위한 5년 보관 기간
+* 모델 개선을 위한 데이터 사용을 허용하지 않는 사용자: 30일 보관 기간
+* 개인정보 설정은 [claude.ai/settings/data-privacy-controls](https://claude.ai/settings/data-privacy-controls)에서 언제든지 변경할 수 있습니다.
+
+**상업 사용자(Team, Enterprise, API)**:
+
+* 표준: 30일 보관 기간
+* [제로 데이터 보관](/zero-data-retention): Claude for Enterprise의 Claude Code에서 사용 가능. ZDR은 조직별로 활성화되며, 각 새 조직은 계정 팀에 의해 별도로 ZDR을 활성화해야 합니다
+* 로컬 캐싱: Claude Code 클라이언트는 세션 재개를 위해 `~/.claude/projects/` 아래에 세션 대화 내용을 일반 텍스트로 기본 30일간 로컬 저장합니다. `cleanupPeriodDays`로 기간을 조정하세요. 저장 내용과 삭제 방법은 [애플리케이션 데이터](/claude-directory#application-data)를 참조하세요.
+
+개별 Claude Code 웹 세션은 언제든지 삭제할 수 있습니다. 세션을 삭제하면 세션의 이벤트 데이터가 영구적으로 제거됩니다. 세션 삭제 방법은 [세션 삭제](/claude-code-on-the-web#delete-sessions)를 참조하세요.
+
+데이터 보관 관행에 대한 자세한 내용은 [개인정보 센터](https://privacy.anthropic.com/)에서 확인하세요.
+
+전체 세부 사항은 [상업 서비스 약관](https://www.anthropic.com/legal/commercial-terms)(Team, Enterprise, API 사용자용) 또는 [일반 약관](https://www.anthropic.com/legal/consumer-terms)(Free, Pro, Max 사용자용) 및 [개인정보 보호정책](https://www.anthropic.com/legal/privacy)을 검토하세요.
+
+## 데이터 접근
+
+모든 자사 사용자의 경우, [로컬 Claude Code](#로컬-claude-code-데이터-흐름-및-종속성)와 [원격 Claude Code](#클라우드-실행-데이터-흐름-및-종속성)에 대해 어떤 데이터가 로그되는지 자세히 알아볼 수 있습니다. [Remote Control](/remote-control) 세션은 모든 실행이 사용자의 머신에서 이루어지므로 로컬 데이터 흐름을 따릅니다. 원격 Claude Code의 경우, Claude는 Claude Code 세션을 시작한 저장소에 접근합니다. Claude는 연결했지만 세션을 시작하지 않은 저장소에는 접근하지 않습니다.
+
+## 로컬 Claude Code: 데이터 흐름 및 종속성
+
+아래 다이어그램은 설치 및 정상 운영 중 Claude Code가 외부 서비스에 연결하는 방식을 보여줍니다. 실선은 필수 연결을, 점선은 선택적 또는 사용자 시작 데이터 흐름을 나타냅니다.
+
+<img src="https://mintcdn.com/claude-code/c5r9_6tjPMzFdDDT/images/claude-code-data-flow.svg?fit=max&auto=format&n=c5r9_6tjPMzFdDDT&q=85&s=b3f71c69d743bff63343207dfb7ad6ce" alt="Claude Code의 외부 연결을 보여주는 다이어그램: 설치/업데이트는 NPM에 연결하고, 사용자 요청은 Console 인증, public-api, 선택적으로 Statsig, Sentry, 버그 보고를 포함한 Anthropic 서비스에 연결합니다" width="720" height="520" data-path="images/claude-code-data-flow.svg" />
+
+Claude Code는 [NPM](https://www.npmjs.com/package/@anthropic-ai/claude-code)에서 설치됩니다. Claude Code는 로컬에서 실행됩니다. LLM과 상호작용하기 위해 Claude Code는 네트워크를 통해 데이터를 전송합니다. 이 데이터에는 모든 사용자 프롬프트와 모델 출력이 포함됩니다. 데이터는 TLS를 통해 전송 중 암호화되며 저장 시에는 암호화되지 않습니다. Claude Code는 대부분의 인기 VPN 및 LLM 프록시와 호환됩니다.
+
+Claude Code는 Anthropic의 API를 기반으로 구축되었습니다. API의 보안 제어(API 로깅 절차 포함)에 대한 자세한 내용은 [Anthropic Trust Center](https://trust.anthropic.com)에서 제공하는 규정 준수 문서를 참조하세요.
+
+### 클라우드 실행: 데이터 흐름 및 종속성
+
+[웹에서 Claude Code](/claude-code-on-the-web)를 사용할 때, 세션은 로컬이 아닌 Anthropic이 관리하는 가상 머신에서 실행됩니다. 클라우드 환경에서는:
+
+* **코드 및 데이터 저장**: 저장소가 격리된 VM에 복제됩니다. 코드 및 세션 데이터는 계정 유형에 대한 보관 및 사용 정책의 적용을 받습니다(위의 데이터 보관 섹션 참조)
+* **자격 증명**: GitHub 인증은 보안 프록시를 통해 처리됩니다. GitHub 자격 증명은 샌드박스에 들어가지 않습니다
+* **네트워크 트래픽**: 모든 아웃바운드 트래픽은 감사 로깅 및 남용 방지를 위해 보안 프록시를 통과합니다
+* **세션 데이터**: 프롬프트, 코드 변경, 출력은 로컬 Claude Code 사용과 동일한 데이터 정책을 따릅니다
+
+클라우드 실행의 보안 세부 사항은 [보안](/security#cloud-execution-security)을 참조하세요.
+
+## 텔레메트리 서비스
+
+Claude Code는 사용자 머신에서 Statsig 서비스에 연결하여 지연 시간, 안정성, 사용 패턴과 같은 운영 메트릭을 로깅합니다. 이 로깅에는 코드나 파일 경로가 포함되지 않습니다. 데이터는 TLS를 사용하여 전송 중 암호화되고 256비트 AES 암호화를 사용하여 저장 시 암호화됩니다. 자세한 내용은 [Statsig 보안 문서](https://www.statsig.com/trust/security)에서 확인하세요. Statsig 텔레메트리를 옵트아웃하려면 `DISABLE_TELEMETRY` 환경 변수를 설정하세요.
+
+Claude Code는 사용자 머신에서 Sentry에 연결하여 운영 오류를 로깅합니다. 데이터는 TLS를 사용하여 전송 중 암호화되고 256비트 AES 암호화를 사용하여 저장 시 암호화됩니다. 자세한 내용은 [Sentry 보안 문서](https://sentry.io/security/)에서 확인하세요. 오류 로깅을 옵트아웃하려면 `DISABLE_ERROR_REPORTING` 환경 변수를 설정하세요.
+
+사용자가 `/feedback` 명령어를 실행하면 코드를 포함한 전체 대화 히스토리 사본이 Anthropic에 전송됩니다. 데이터는 전송 중 및 저장 시 암호화됩니다. 선택적으로 공개 저장소에 GitHub 이슈가 생성됩니다. 옵트아웃하려면 `DISABLE_FEEDBACK_COMMAND` 환경 변수를 `1`로 설정하세요.
+
+## API 제공자별 기본 동작
+
+기본적으로 Bedrock, Vertex 또는 Foundry를 사용할 때 오류 보고, 텔레메트리, 버그 보고는 비활성화됩니다. 세션 품질 설문은 예외로 제공자에 관계없이 표시됩니다. `CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC`을 설정하면 설문을 포함한 모든 비필수 트래픽을 한 번에 옵트아웃할 수 있습니다. 전체 기본 동작은 다음과 같습니다:
+
+| 서비스 | Claude API | Vertex API | Bedrock API | Foundry API |
+| ------------------------------------ | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| **Statsig (메트릭)** | 기본 켜짐.<br />`DISABLE_TELEMETRY=1`로 비활성화. | 기본 꺼짐.<br />`CLAUDE_CODE_USE_VERTEX`가 1이어야 함. | 기본 꺼짐.<br />`CLAUDE_CODE_USE_BEDROCK`이 1이어야 함. | 기본 꺼짐.<br />`CLAUDE_CODE_USE_FOUNDRY`가 1이어야 함. |
+| **Sentry (오류)** | 기본 켜짐.<br />`DISABLE_ERROR_REPORTING=1`로 비활성화. | 기본 꺼짐.<br />`CLAUDE_CODE_USE_VERTEX`가 1이어야 함. | 기본 꺼짐.<br />`CLAUDE_CODE_USE_BEDROCK`이 1이어야 함. | 기본 꺼짐.<br />`CLAUDE_CODE_USE_FOUNDRY`가 1이어야 함. |
+| **Claude API (`/feedback` 보고서)** | 기본 켜짐.<br />`DISABLE_FEEDBACK_COMMAND=1`로 비활성화. | 기본 꺼짐.<br />`CLAUDE_CODE_USE_VERTEX`가 1이어야 함. | 기본 꺼짐.<br />`CLAUDE_CODE_USE_BEDROCK`이 1이어야 함. | 기본 꺼짐.<br />`CLAUDE_CODE_USE_FOUNDRY`가 1이어야 함. |
+| **세션 품질 설문** | 기본 켜짐.<br />`CLAUDE_CODE_DISABLE_FEEDBACK_SURVEY=1`로 비활성화. | 기본 켜짐.<br />`CLAUDE_CODE_DISABLE_FEEDBACK_SURVEY=1`로 비활성화. | 기본 켜짐.<br />`CLAUDE_CODE_DISABLE_FEEDBACK_SURVEY=1`로 비활성화. | 기본 켜짐.<br />`CLAUDE_CODE_DISABLE_FEEDBACK_SURVEY=1`로 비활성화. |
+
+모든 환경 변수는 `settings.json`에 체크인할 수 있습니다([설정 참조](/settings) 참조).

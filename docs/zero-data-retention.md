@@ -1,0 +1,65 @@
+---
+title: 제로 데이터 보존
+description: Claude for Enterprise에서 Claude Code의 제로 데이터 보존(ZDR) 기능, 적용 범위, 비활성화 기능 및 활성화 요청 방법에 대해 알아보세요.
+---
+
+# 제로 데이터 보존
+
+제로 데이터 보존(ZDR)은 Claude for Enterprise를 통해 사용하는 Claude Code에서 이용할 수 있습니다. ZDR이 활성화되면 Claude Code 세션 중 생성된 프롬프트와 모델 응답은 실시간으로 처리되며, 법률 준수 또는 오용 방지에 필요한 경우를 제외하고 응답 반환 후 Anthropic에 저장되지 않습니다.
+
+Claude for Enterprise의 ZDR을 통해 기업 고객은 제로 데이터 보존 환경에서 Claude Code를 사용하고 다음과 같은 관리 기능에 접근할 수 있습니다:
+
+* 사용자별 비용 제어
+* [Analytics](/analytics) 대시보드
+* [서버 관리 설정](/server-managed-settings)
+* 감사 로그
+
+Claude for Enterprise에서 Claude Code의 ZDR은 Anthropic의 직접 플랫폼에만 적용됩니다. AWS Bedrock, Google Vertex AI, Microsoft Foundry에서의 Claude 배포의 경우 해당 플랫폼의 데이터 보존 정책을 참조하세요.
+
+## ZDR 적용 범위
+
+ZDR은 Claude for Enterprise에서의 Claude Code 추론에 적용됩니다.
+
+:::warning
+ZDR은 조직 단위로 활성화됩니다. 새로운 조직마다 Anthropic 계정 팀이 별도로 ZDR을 활성화해야 합니다. 동일한 계정 하에 생성된 새 조직에는 ZDR이 자동으로 적용되지 않습니다. 새 조직에 대한 ZDR 활성화는 계정 팀에 문의하세요.
+:::
+
+### ZDR 적용 대상
+
+ZDR은 Claude for Enterprise에서 Claude Code를 통해 이루어지는 모델 추론 호출에 적용됩니다. 터미널에서 Claude Code를 사용할 때 전송하는 프롬프트와 Claude가 생성하는 응답은 Anthropic에 저장되지 않습니다. 이는 사용하는 Claude 모델에 관계없이 적용됩니다.
+
+### ZDR 미적용 대상
+
+다음 항목은 ZDR이 활성화된 조직이라도 ZDR 적용 대상에서 제외됩니다. 이러한 기능은 [표준 데이터 보존 정책](/data-usage#data-retention)을 따릅니다:
+
+| 기능 | 세부 사항 |
+| ---- | --------- |
+| claude.ai 채팅 | Claude for Enterprise 웹 인터페이스를 통한 채팅 대화는 ZDR 적용 대상이 아닙니다. |
+| Cowork | Cowork 세션은 ZDR 적용 대상이 아닙니다. |
+| Claude Code Analytics | 프롬프트나 모델 응답은 저장하지 않지만, 계정 이메일 및 사용 통계와 같은 생산성 메타데이터를 수집합니다. 기여 지표는 ZDR 조직에서 제공되지 않으며 [analytics 대시보드](/analytics)에는 사용량 지표만 표시됩니다. |
+| 사용자 및 시트 관리 | 계정 이메일 및 시트 배정과 같은 관리 데이터는 표준 정책에 따라 보존됩니다. |
+| 서드파티 통합 | 서드파티 도구, MCP 서버 또는 기타 외부 통합에서 처리되는 데이터는 ZDR 적용 대상이 아닙니다. 해당 서비스의 데이터 처리 방침을 별도로 확인하세요. |
+
+## ZDR 활성화 시 비활성화되는 기능
+
+Claude for Enterprise에서 Claude Code 조직에 ZDR이 활성화되면, 프롬프트나 완성 결과를 저장해야 하는 특정 기능이 백엔드 수준에서 자동으로 비활성화됩니다:
+
+| 기능 | 이유 |
+| ---- | ---- |
+| [웹에서 Claude Code 사용](/claude-code-on-the-web) | 대화 기록의 서버 측 저장이 필요합니다. |
+| Desktop 앱의 [원격 세션](/desktop#remote-sessions) | 프롬프트와 완성 결과를 포함하는 지속적인 세션 데이터가 필요합니다. |
+| 피드백 제출 (`/feedback`) | 피드백 제출 시 대화 데이터가 Anthropic으로 전송됩니다. |
+
+이 기능들은 클라이언트 측 표시 여부와 관계없이 백엔드에서 차단됩니다. 시작 시 Claude Code 터미널에서 비활성화된 기능이 표시되는 경우, 해당 기능을 사용하려 하면 조직의 정책에서 해당 작업을 허용하지 않는다는 오류가 반환됩니다.
+
+향후 프롬프트나 완성 결과를 저장해야 하는 기능이 추가될 경우에도 비활성화될 수 있습니다.
+
+## 정책 위반 시 데이터 보존
+
+ZDR이 활성화된 상태에서도 법률에서 요구하거나 사용 정책 위반에 대응하기 위해 Anthropic이 데이터를 보존할 수 있습니다. 세션이 정책 위반으로 플래그되면, Anthropic의 표준 ZDR 정책에 따라 관련 입력 및 출력을 최대 2년간 보존할 수 있습니다.
+
+## ZDR 신청
+
+Claude for Enterprise에서 Claude Code의 ZDR을 신청하려면 Anthropic 계정 팀에 문의하세요. 계정 팀이 내부적으로 요청을 제출하면, Anthropic이 자격 요건을 확인한 후 조직에 ZDR을 검토하고 활성화합니다. 모든 활성화 작업은 감사 로그에 기록됩니다.
+
+현재 종량제 API 키를 통해 Claude Code에서 ZDR을 사용 중인 경우, Claude for Enterprise로 전환하면 Claude Code의 ZDR을 유지하면서 관리 기능을 이용할 수 있습니다. 마이그레이션 조율을 위해 계정 팀에 문의하세요.
