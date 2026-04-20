@@ -112,6 +112,7 @@ export default defineConfig({
         text: '기타 기능',
         collapsed: true,
         items: [
+          { text: 'Claude Design 시작하기', link: '/claude-design-get-started' },
           { text: 'Checkpointing', link: '/checkpointing' },
           { text: '예약 작업', link: '/scheduled-tasks' },
           { text: '샌드박싱', link: '/sandboxing' },
